@@ -1,7 +1,7 @@
 package com.polovyi.ivan.tutorials.dto.response;
 
 import com.polovyi.ivan.tutorials.dto.entity.SensorEventEntity;
-import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.List;
@@ -12,9 +12,6 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
-import org.springframework.data.cassandra.core.mapping.Column;
-import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 
 @Data
 @Builder
@@ -26,12 +23,13 @@ public class SensorEventResponse {
     private UUID deviceId;
     private UUID eventId;
     private LocalDate eventDate;
-    private Set<Inet4Address> closestDevicesIp;
-    private List<Integer> temperature;
+    private Set<InetAddress> closestDevicesIp;
+    private List<Integer> temperatures;
     private Map<String, String> tags;
-    private Double latitude;
-    private Double longitude;
+    private Float latitude;
+    private Float longitude;
     private Integer humidity;
+    private Integer pressure;
     private LocalTime eventTime;
 
 
@@ -42,12 +40,13 @@ public class SensorEventResponse {
                 .eventId(entity.getPrimaryKey().getEventId())
                 .eventDate(entity.getPrimaryKey().getEventDate())
                 .closestDevicesIp(entity.getClosestDevicesIp())
-                .temperature(entity.getTemperature())
+                .temperatures(entity.getTemperatures())
                 .tags(entity.getTags())
                 .latitude(entity.getLatitude())
                 .longitude(entity.getLongitude())
                 .humidity(entity.getHumidity())
-                .humidity(entity.getHumidity())
+                .pressure(entity.getPressure())
+                .eventTime(entity.getEventTime())
                 .build();
     }
 

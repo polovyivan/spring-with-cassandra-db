@@ -1,8 +1,7 @@
 package com.polovyi.ivan.tutorials.dto.entity;
 
 import com.polovyi.ivan.tutorials.dto.request.SensorEventRequest;
-import com.polovyi.ivan.tutorials.dto.response.SensorEventResponse;
-import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.time.LocalTime;
 import java.util.List;
 import java.util.Map;
@@ -26,22 +25,25 @@ public class SensorEventEntity {
     private SensorEventEntityCompositeKey primaryKey;
 
     @Column(value = "closest_devices_ip")
-    private Set<Inet4Address> closestDevicesIp;
+    private Set<InetAddress> closestDevicesIp;
 
-    @Column(value = "temperature")
-    private List<Integer> temperature;
+    @Column(value = "temperatures")
+    private List<Integer> temperatures;
 
     @Column(value = "tags")
     private Map<String, String> tags;
 
     @Column(value = "latitude")
-    private Double latitude;
+    private Float latitude;
 
     @Column(value = "longitude")
-    private Double longitude;
+    private Float longitude;
 
     @Column(value = "humidity")
     private Integer humidity;
+
+    @Column(value = "pressure")
+    private Integer pressure;
 
     @Column(value = "event_time")
     private LocalTime eventTime;
@@ -57,12 +59,13 @@ public class SensorEventEntity {
         return builder()
                 .primaryKey(sensorEventEntityCompositeKey)
                 .closestDevicesIp(request.getClosestDevicesIp())
-                .temperature(request.getTemperature())
+                .temperatures(request.getTemperatures())
                 .tags(request.getTags())
                 .latitude(request.getLatitude())
                 .longitude(request.getLongitude())
                 .humidity(request.getHumidity())
-                .humidity(request.getHumidity())
+                .pressure(request.getPressure())
+                .eventTime(request.getEventTime())
                 .build();
     }
 }
