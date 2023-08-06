@@ -8,16 +8,23 @@ server:
 spring:
   application:
     name: spring-with-cassandra-db
-#  data:
-#    cassandra:
-#      keyspace: default
+
   cassandra:
     contact-points: 172.16.238.11:9042,172.16.238.12:9042,172.16.238.13:9042
     keyspace-name: iot
     cluster-name: TutorialCluster
     local-datacenter: dc
-
-
 #    port: 9042
 #    username: cassandra
 #    password: cassandra
+
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          cassandra:
+            core:
+              cql:
+                CqlTemplate: DEBUG
