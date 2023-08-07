@@ -20,8 +20,8 @@ public class SensorEventRequest {
 
     private String accountName;
     private UUID deviceId;
-    private UUID eventId;
     private LocalDate eventDate;
+    private UUID eventId;
     private Set<InetAddress> closestDevicesIp;
     private List<Integer> temperatures;
     private Map<String, String> tags;

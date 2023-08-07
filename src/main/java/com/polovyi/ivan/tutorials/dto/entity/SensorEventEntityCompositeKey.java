@@ -23,10 +23,10 @@ public class SensorEventEntityCompositeKey {
     @PrimaryKeyColumn(name = "device_id", ordinal = 1, type = PrimaryKeyType.PARTITIONED)
     private UUID deviceId;
 
-    @PrimaryKeyColumn(name = "event_id", ordinal = 0, type = PrimaryKeyType.CLUSTERED)
-    private UUID eventId;
-
-    @PrimaryKeyColumn(name = "event_date", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
+    @PrimaryKeyColumn(name = "event_date", ordinal = 0, type = PrimaryKeyType.CLUSTERED)
     private LocalDate eventDate;
+
+    @PrimaryKeyColumn(name = "event_id", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
+    private UUID eventId;
 
 }

@@ -21,8 +21,8 @@ public class SensorEventResponse {
 
     private String accountName;
     private UUID deviceId;
-    private UUID eventId;
     private LocalDate eventDate;
+    private UUID eventId;
     private Set<InetAddress> closestDevicesIp;
     private List<Integer> temperatures;
     private Map<String, String> tags;
@@ -35,10 +35,10 @@ public class SensorEventResponse {
 
     public static SensorEventResponse valueOf(SensorEventEntity entity) {
         return builder()
-                .accountName(entity.getPrimaryKey().getAccountName())
-                .deviceId(entity.getPrimaryKey().getDeviceId())
-                .eventId(entity.getPrimaryKey().getEventId())
-                .eventDate(entity.getPrimaryKey().getEventDate())
+                .accountName(entity.getKey().getAccountName())
+                .deviceId(entity.getKey().getDeviceId())
+                .eventDate(entity.getKey().getEventDate())
+                .eventId(entity.getKey().getEventId())
                 .closestDevicesIp(entity.getClosestDevicesIp())
                 .temperatures(entity.getTemperatures())
                 .tags(entity.getTags())

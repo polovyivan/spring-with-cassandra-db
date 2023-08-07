@@ -22,7 +22,7 @@ import org.springframework.data.cassandra.core.mapping.Table;
 public class SensorEventEntity {
 
     @PrimaryKey
-    private SensorEventEntityCompositeKey primaryKey;
+    private SensorEventEntityCompositeKey key;
 
     @Column(value = "closest_devices_ip")
     private Set<InetAddress> closestDevicesIp;
@@ -57,7 +57,7 @@ public class SensorEventEntity {
                 .build();
 
         return builder()
-                .primaryKey(sensorEventEntityCompositeKey)
+                .key(sensorEventEntityCompositeKey)
                 .closestDevicesIp(request.getClosestDevicesIp())
                 .temperatures(request.getTemperatures())
                 .tags(request.getTags())
