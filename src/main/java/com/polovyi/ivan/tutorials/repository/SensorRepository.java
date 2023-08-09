@@ -1,7 +1,6 @@
 package com.polovyi.ivan.tutorials.repository;
 
-import com.polovyi.ivan.tutorials.dto.entity.SensorEventEntity;
-import com.polovyi.ivan.tutorials.dto.entity.SensorEventEntityCompositeKey;
+import com.polovyi.ivan.tutorials.dto.entity.SensorEntity;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
@@ -10,7 +9,7 @@ import org.springframework.data.cassandra.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface SensorEventsRepository extends CassandraRepository<SensorEventEntity, SensorEventEntityCompositeKey> {
+public interface SensorRepository extends CassandraRepository<SensorEntity, String> {
 
     @Query("""
             SELECT * FROM sensor_events WHERE 
@@ -19,5 +18,5 @@ public interface SensorEventsRepository extends CassandraRepository<SensorEventE
             event_date = :#{#eventDate} AND 
             event_id = :#{#eventId} 
             """)
-    List<SensorEventEntity> findByKeyAccountNameAndKeyDeviceId(String accountName, UUID deviceId,  LocalDate eventDate, UUID eventId);
+    List<SensorEntity> findByKeyAccountNameAndKeyDeviceId(String accountName, UUID deviceId,  LocalDate eventDate, UUID eventId);
 }
