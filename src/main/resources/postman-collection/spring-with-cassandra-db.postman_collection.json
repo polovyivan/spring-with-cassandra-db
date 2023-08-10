@@ -1,0 +1,145 @@
+{
+	"info": {
+		"_postman_id": "fc348888-f899-471c-8444-0849a64fabd6",
+		"name": "spring-with-cassandra-db",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9825253"
+	},
+	"item": [
+		{
+			"name": "sensor-events",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n        \"deviceName\": \"EQSaYS7\",\n        \"ipAddress\": \"9.147.56.113\",\n        \"latitude\": 40.227825,\n        \"longitude\": -8.538217\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/spring-with-cassandra-db/v1/sensors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"spring-with-cassandra-db",
+						"v1",
+						"sensors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sensor-events",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8001/spring-with-cassandra-db/v1/sensors",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"spring-with-cassandra-db",
+						"v1",
+						"sensors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sensor-events/{accountName}/event/{deviceId}",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountName\": \"accountName\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/spring-with-cassandra-db/v1/sensors/:sensorId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"spring-with-cassandra-db",
+						"v1",
+						"sensors",
+						":sensorId"
+					],
+					"variable": [
+						{
+							"key": "sensorId",
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "sensor-events/{accountName}/event/{deviceId}",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"accountName\": \"accountName\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8001/spring-with-cassandra-db/v1/sensors/:sensorId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8001",
+					"path": [
+						"spring-with-cassandra-db",
+						"v1",
+						"sensors",
+						":sensorId"
+					],
+					"variable": [
+						{
+							"key": "sensorId",
+							"value": "58eab6bf-5f59-4026-83d7-c6024f3a9b9e"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
